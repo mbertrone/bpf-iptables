@@ -10,23 +10,23 @@ No kernel modification are required, `bpf` comes at zero cost with recent Linux 
 ## Research papers
 
 ### Securing Linux with a Faster and Scalable Iptables
-*Draft, 1 December 2018*
+*Draft, 1 December 2018*  
 This paper presents an eBPF-based firewall, bpf-iptables, which emulates the iptables filtering semantic while guaranteeing higher throughput outperforming other Linux-based firewalls particularly when a high number of rules is involved.
 [PDF](https://mbertrone.github.io/documents/21-Securing_Linux_with_a_Faster_and_Scalable_Iptables.pdf)
 
 ### Accelerating Linux Security with eBPF iptables
-*ACM SIGCOMM 2018 Conference Posters and Demos, Budapest (H), 20-25 August 2018*
+*ACM SIGCOMM 2018 Conference Posters and Demos, Budapest (H), 20-25 August 2018*  
 This paper presents an eBPF-based prototype that emulates the iptables filtering semantic and exploits a more efficient matching algorithm, without requiring custom kernels or invasive software frameworks.
 [PDF](https://mbertrone.github.io/documents/19-eBPF-Iptables-Demo.pdf)
 
 ### Toward an eBPF-based clone of iptables
-*Netdev 0x12, The Technical Conference on Linux Networking, Montréal (Canada), 11-13 July 2018*
+*Netdev 0x12, The Technical Conference on Linux Networking, Montréal (Canada), 11-13 July 2018*  
 This paper reports the first results of a project that aims at creating a eBPF-based (partial) clone of iptables. This project assumes unmodified Linux kernel and guarantees the full compatibility with current iptables.
 [PDF](https://mbertrone.github.io/documents/20-eBPF-Iptables-Netdev.pdf)
 
 ## How to use?
 
-`bpf-iptables` is part of `PolyCube` framework, so will be called `pcn-iptables` (`pcn=PolyCubeNetwork`).
+`bpf-iptables` is part of `PolyCube` framework. We use `pcn-iptables` syntax (`pcn=PolyCubeNetwork`).
 
 ### Docker
 
@@ -80,14 +80,26 @@ pcn-iptables-clean
 ```
 
 ## Q&A
-Q:Can I still use `iptables`?
-A:Yes, `bpf-iptables` is independent.
+Q:Can I still use `iptables`?  
+A:Yes, iptables will not be affected.
 
-Q:
-A:
+Q:Advantages?  
+A:Performance (especially with a large amount of rules); Low CPU utilization (especially with XDP mode)
+
+Q:How to use XDP mode?  
+A:run `pcn-iptables-init-xdp`
+
+Q:Limitations of XDP mode?  
+A:`pcn-itpables` will be atached only to XDP compatible interfaces.
+
+
+## Links
+[pcn-iptables Source Code](https://github.com/polycube-network/polycube/tree/master/src/services/pcn-iptables)  
+[pcn-iptables Documentation](https://github.com/polycube-network/polycube/blob/master/Documentation/components/iptables/pcn-iptables.rst)  
+[PolyCube Network](https://github.com/polycube-network/polycube)
 
 
 ### Disclaimer
 
-bpf-iptables is not related to bpfilter (https://lwn.net/Articles/747551/).
+bpf-iptables is not related to bpfilter (https://lwn.net/Articles/747551/).  
 Right now bpf-iptables uses a different mechanism to intercept iptables rules.
