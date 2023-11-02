@@ -26,7 +26,7 @@ This paper reports the first results of a project that aims at creating a eBPF-b
 
 ## How to use?
 
-`bpf-iptables` is part of `PolyCube` framework. We use `pcn-iptables` syntax (`pcn=PolyCubeNetwork`).
+`bpf-iptables` uses part of `PolyCube` framework. We use `pcn-iptables` syntax (`pcn=PolyCubeNetwork`).
 
 ### Docker
 
